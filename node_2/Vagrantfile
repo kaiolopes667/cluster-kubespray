@@ -1,0 +1,19 @@
+# Vagrantfile
+Vagrant.configure("2") do |config|
+  # Especifica a box que será usada
+  config.vm.box = "centos/8"
+  
+  # Configurações da VM
+  config.vm.provider "virtualbox" do |vb|
+    # Define a quantidade de memória RAM
+    vb.memory = "2048"
+    # Define a quantidade de CPUs
+    vb.cpus = 2
+  end
+
+  # Configurações de rede
+  config.vm.network "public_network", bridge: "Realtek 8822CE Wireless LAN 802.11ac PCI-E NIC", ip: "192.168.1.210"
+
+  # Configurações adicionais
+  config.vm.hostname = "node-2"
+end
